@@ -59,11 +59,11 @@
 		5C2B4BF61BED3B1600DC1615 /* lab3Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "lab3Tests-Info.plist"; sourceTree = "<group>"; };
 		5C2B4BF81BED3B1600DC1615 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		5C2B4BFA1BED3B1600DC1615 /* lab3Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = lab3Tests.m; sourceTree = "<group>"; };
-		5C2B4C041BED3BA600DC1615 /* campusmap.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = campusmap.png; path = ../../knife/campusmap.png; sourceTree = "<group>"; };
+		5C2B4C041BED3BA600DC1615 /* campusmap.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = campusmap.png; path = ../campusmap.png; sourceTree = "<group>"; };
 		5C2B4C061BED5F5600DC1615 /* DetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DetailsViewController.h; path = ../DetailsViewController.h; sourceTree = "<group>"; };
 		5C2B4C071BED5F5600DC1615 /* DetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DetailsViewController.m; path = ../DetailsViewController.m; sourceTree = "<group>"; };
-		5C2B4C091BED7A4C00DC1615 /* SJSU_Engineering.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = SJSU_Engineering.png; path = ../../knife/SJSU_Engineering.png; sourceTree = "<group>"; };
-		5C2B4C0B1BED813E00DC1615 /* MLKLibrary.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MLKLibrary.png; path = ../../knife/MLKLibrary.png; sourceTree = "<group>"; };
+		5C2B4C091BED7A4C00DC1615 /* SJSU_Engineering.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = SJSU_Engineering.png; path = ../SJSU_Engineering.png; sourceTree = "<group>"; };
+		5C2B4C0B1BED813E00DC1615 /* MLKLibrary.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MLKLibrary.png; path = ../MLKLibrary.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,9 +93,6 @@
 		5C2B4BC01BED3B1500DC1615 = {
 			isa = PBXGroup;
 			children = (
-				5C2B4C0B1BED813E00DC1615 /* MLKLibrary.png */,
-				5C2B4C091BED7A4C00DC1615 /* SJSU_Engineering.png */,
-				5C2B4C041BED3BA600DC1615 /* campusmap.png */,
 				5C2B4BD21BED3B1500DC1615 /* lab3 */,
 				5C2B4BF41BED3B1600DC1615 /* lab3Tests */,
 				5C2B4BCB1BED3B1500DC1615 /* Frameworks */,
@@ -126,6 +123,9 @@
 		5C2B4BD21BED3B1500DC1615 /* lab3 */ = {
 			isa = PBXGroup;
 			children = (
+				5C2B4C041BED3BA600DC1615 /* campusmap.png */,
+				5C2B4C0B1BED813E00DC1615 /* MLKLibrary.png */,
+				5C2B4C091BED7A4C00DC1615 /* SJSU_Engineering.png */,
 				5C2B4BDB1BED3B1500DC1615 /* AppDelegate.h */,
 				5C2B4BDC1BED3B1500DC1615 /* AppDelegate.m */,
 				5C2B4BDE1BED3B1500DC1615 /* Main_iPhone.storyboard */,
