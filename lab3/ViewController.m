@@ -8,8 +8,11 @@
 
 #import "ViewController.h"
 #import "DetailsViewController.h"
+#import "LABBuilding.h"
 
-@interface ViewController ()
+@interface ViewController (){
+NSMutableArray *buildings;
+}
 
 @end
 
@@ -19,6 +22,26 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    
+    buildings = [[NSMutableArray alloc] initWithCapacity: 6];
+    
+    // Define buildings
+    
+    LABBuilding *library = [[LABBuilding alloc] init];
+    library.buildingName = @"Dr. Martin Luther King, Jr. Library";
+    library.buildingAddress = @"150 East San Fernando Street, San Jose, CA 95112";
+    library.imageName = @"MLKLibrary.png";
+    [buildings addObject: library];
+    
+    
+    LABBuilding *engr = [[LABBuilding alloc] init];
+    engr.buildingName = @"Charles W. Davidson College of Engineering";
+    engr.buildingAddress = @"1 Washington Square, San Jose, CA 95112";
+    engr.imageName = @"SJSU_Engineering.png";
+    [buildings addObject: engr];
+    
+    
+    // End of defining buildings
     
     [self.imageView setImage:[UIImage imageNamed:@"campusmap.png"]];
     
@@ -38,17 +61,10 @@
 
 - (IBAction)ENGRButton:(id)sender {
     DetailsViewController *DVC = [self.storyboard instantiateViewControllerWithIdentifier:@"DetailsViewController"];
-//    DVC.nameValue = @"http://www.google.com";
+    
     [self presentViewController:DVC animated:YES completion:nil];
     
-    DVC.nameLabel.text=@"Building Name: ENGR";
-    DVC.addressLabel.text = @"Address: San José State University Charles W. Davidson College of Engineering, 1 Washington Square, San Jose, CA 95112";
-    
-    //call calculate distance function and print the returned value below
-    //TODO calculateDistance here
-    DVC.distanceLabel.text = @"Walking Distance: N/A";
-    [DVC.buildingImageName setImage:[UIImage imageNamed:@"SJSU_Engineering.png"]];
-    
+    [DVC setBuilding: [buildings objectAtIndex: 1]];
     
 }
 
@@ -56,13 +72,7 @@
     DetailsViewController *DVC = [self.storyboard instantiateViewControllerWithIdentifier:@"DetailsViewController"];
     [self presentViewController:DVC animated:YES completion:nil];
     
-    DVC.nameLabel.text=@"Building Name: MLK Library";
-    DVC.addressLabel.text = @"Address: Dr. Martin Luther King, Jr. Library, 150 East San Fernando Street, San Jose, CA 95112";
-    
-    //call calculate distance function and print the returned value below
-    //TODO calculateDistance here
-    DVC.distanceLabel.text = @"Walking Distance: N/A";
-    [DVC.buildingImageName setImage:[UIImage imageNamed:@"MLKLibrary.png"]];
+    [DVC setBuilding: [buildings objectAtIndex: 0]];
 }
 
 - (IBAction)ENGRTab:(id)sender {

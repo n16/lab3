@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3FD3E5961BEDA59400542C9C /* LABBuilding.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FD3E5951BEDA59400542C9C /* LABBuilding.m */; };
 		5C2B4BCD1BED3B1500DC1615 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C2B4BCC1BED3B1500DC1615 /* Foundation.framework */; };
 		5C2B4BCF1BED3B1500DC1615 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C2B4BCE1BED3B1500DC1615 /* CoreGraphics.framework */; };
 		5C2B4BD11BED3B1500DC1615 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C2B4BD01BED3B1500DC1615 /* UIKit.framework */; };
@@ -39,6 +40,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3FD3E5941BEDA57E00542C9C /* LABBuilding.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LABBuilding.h; sourceTree = "<group>"; };
+		3FD3E5951BEDA59400542C9C /* LABBuilding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LABBuilding.m; sourceTree = "<group>"; };
 		5C2B4BC91BED3B1500DC1615 /* lab3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = lab3.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C2B4BCC1BED3B1500DC1615 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		5C2B4BCE1BED3B1500DC1615 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -136,6 +139,8 @@
 				5C2B4C071BED5F5600DC1615 /* DetailsViewController.m */,
 				5C2B4BE71BED3B1500DC1615 /* Images.xcassets */,
 				5C2B4BD31BED3B1500DC1615 /* Supporting Files */,
+				3FD3E5941BEDA57E00542C9C /* LABBuilding.h */,
+				3FD3E5951BEDA59400542C9C /* LABBuilding.m */,
 			);
 			path = lab3;
 			sourceTree = "<group>";
@@ -274,6 +279,7 @@
 				5C2B4BDD1BED3B1500DC1615 /* AppDelegate.m in Sources */,
 				5C2B4BD91BED3B1500DC1615 /* main.m in Sources */,
 				5C2B4C081BED5F5600DC1615 /* DetailsViewController.m in Sources */,
+				3FD3E5961BEDA59400542C9C /* LABBuilding.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "LABBuilding.h"
 
 @interface DetailsViewController : UIViewController
 
@@ -24,5 +25,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *distanceLabel;
 
 @property (weak, nonatomic) IBOutlet UIImageView *buildingImageName;
+
+- (void) setBuilding: (LABBuilding *) building;
 
 @end
