@@ -49,6 +49,14 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)setBuilding:(LABBuilding *)building
+{
+    self.nameLabel.text = [NSString stringWithFormat: @"Building name: %@", building.buildingName];
+    self.addressLabel.text = [NSString stringWithFormat: @"Address: %@", building.buildingAddress];
+    self.distanceLabel.text = @"Walking Distance: N/A";
+    [self.buildingImageName setImage: [UIImage imageNamed: building.imageName]];
+}
+
 
 
 @end
