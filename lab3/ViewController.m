@@ -67,11 +67,7 @@ NSMutableArray *buildings;
     
     // End of defining buildings
     
-    [self.imageView setFrame: CGRectMake(0, 0, 660, 694)];
-    
-    [self.scrollView setMinimumZoomScale:0.25f];
-    [self.scrollView setMaximumZoomScale:5.0f];
-    [self.scrollView setClipsToBounds:YES];
+    [self.scrollView setZoomScale: 0.6f];
     
     // Set up tap recognizer
     UITapGestureRecognizer *scrollTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleScrollTap:)];
@@ -104,6 +100,10 @@ NSMutableArray *buildings;
 
 - (UIView *) viewForZoomingInScrollView:(UIScrollView *)scrollView {
     return self.imageView;
+}
+
+- (void) scrollViewDidEndZooming:(UIScrollView *)scrollView withView:(UIView *)view atScale:(CGFloat)scale {
+    self.scrollView.contentSize = CGSizeMake(self.imageView.image.size.width * scale, self.imageView.image.size.height * scale);
 }
 
 @end

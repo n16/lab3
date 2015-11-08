@@ -27,6 +27,7 @@
 		5C2B4C081BED5F5600DC1615 /* DetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C2B4C071BED5F5600DC1615 /* DetailsViewController.m */; };
 		5C2B4C0A1BED7A4C00DC1615 /* SJSU_Engineering.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C2B4C091BED7A4C00DC1615 /* SJSU_Engineering.png */; };
 		5C2B4C0C1BED813E00DC1615 /* MLKLibrary.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C2B4C0B1BED813E00DC1615 /* MLKLibrary.png */; };
+		E4A554E91BEF20EF006F38CB /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E4A554E81BEF20EF006F38CB /* Launch Screen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +68,7 @@
 		5C2B4C071BED5F5600DC1615 /* DetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DetailsViewController.m; path = ../DetailsViewController.m; sourceTree = "<group>"; };
 		5C2B4C091BED7A4C00DC1615 /* SJSU_Engineering.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = SJSU_Engineering.png; path = ../SJSU_Engineering.png; sourceTree = "<group>"; };
 		5C2B4C0B1BED813E00DC1615 /* MLKLibrary.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MLKLibrary.png; path = ../MLKLibrary.png; sourceTree = "<group>"; };
+		E4A554E81BEF20EF006F38CB /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,6 +143,7 @@
 				5C2B4BD31BED3B1500DC1615 /* Supporting Files */,
 				3FD3E5941BEDA57E00542C9C /* LABBuilding.h */,
 				3FD3E5951BEDA59400542C9C /* LABBuilding.m */,
+				E4A554E81BEF20EF006F38CB /* Launch Screen.storyboard */,
 			);
 			path = lab3;
 			sourceTree = "<group>";
@@ -252,6 +255,7 @@
 			files = (
 				5C2B4BE31BED3B1500DC1615 /* Main_iPad.storyboard in Resources */,
 				5C2B4BE81BED3B1500DC1615 /* Images.xcassets in Resources */,
+				E4A554E91BEF20EF006F38CB /* Launch Screen.storyboard in Resources */,
 				5C2B4BE01BED3B1500DC1615 /* Main_iPhone.storyboard in Resources */,
 				5C2B4BD71BED3B1500DC1615 /* InfoPlist.strings in Resources */,
 				5C2B4C0C1BED813E00DC1615 /* MLKLibrary.png in Resources */,
