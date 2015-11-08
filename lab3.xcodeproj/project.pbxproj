@@ -28,6 +28,7 @@
 		5C2B4C0A1BED7A4C00DC1615 /* SJSU_Engineering.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C2B4C091BED7A4C00DC1615 /* SJSU_Engineering.png */; };
 		5C2B4C0C1BED813E00DC1615 /* MLKLibrary.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C2B4C0B1BED813E00DC1615 /* MLKLibrary.png */; };
 		E4A554E91BEF20EF006F38CB /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E4A554E81BEF20EF006F38CB /* Launch Screen.storyboard */; };
+		E4A554EC1BEF28D2006F38CB /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = E4A554EB1BEF28D2006F38CB /* Constants.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +70,8 @@
 		5C2B4C091BED7A4C00DC1615 /* SJSU_Engineering.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = SJSU_Engineering.png; path = ../SJSU_Engineering.png; sourceTree = "<group>"; };
 		5C2B4C0B1BED813E00DC1615 /* MLKLibrary.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MLKLibrary.png; path = ../MLKLibrary.png; sourceTree = "<group>"; };
 		E4A554E81BEF20EF006F38CB /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		E4A554EA1BEF28D2006F38CB /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		E4A554EB1BEF28D2006F38CB /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,6 +147,8 @@
 				3FD3E5941BEDA57E00542C9C /* LABBuilding.h */,
 				3FD3E5951BEDA59400542C9C /* LABBuilding.m */,
 				E4A554E81BEF20EF006F38CB /* Launch Screen.storyboard */,
+				E4A554EA1BEF28D2006F38CB /* Constants.h */,
+				E4A554EB1BEF28D2006F38CB /* Constants.m */,
 			);
 			path = lab3;
 			sourceTree = "<group>";
@@ -284,6 +289,7 @@
 				5C2B4BD91BED3B1500DC1615 /* main.m in Sources */,
 				5C2B4C081BED5F5600DC1615 /* DetailsViewController.m in Sources */,
 				3FD3E5961BEDA59400542C9C /* LABBuilding.m in Sources */,
+				E4A554EC1BEF28D2006F38CB /* Constants.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

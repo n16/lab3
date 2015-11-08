@@ -9,9 +9,11 @@
 #import "ViewController.h"
 #import "DetailsViewController.h"
 #import "LABBuilding.h"
+#import "Constants.h"
 
 @interface ViewController (){
 NSMutableArray *buildings;
+    NSUserDefaults *defaults;
 }
 
 @end
@@ -24,6 +26,7 @@ NSMutableArray *buildings;
 	// Do any additional setup after loading the view, typically from a nib.
     
     buildings = [[NSMutableArray alloc] initWithCapacity: 6];
+    defaults = [NSUserDefaults standardUserDefaults];
     
     // Define buildings
     
@@ -67,7 +70,19 @@ NSMutableArray *buildings;
     
     // End of defining buildings
     
-    [self.scrollView setZoomScale: 0.6f];
+    // Retrieve persisted ScrollView state
+    CGPoint offset = CGPointMake([defaults floatForKey:XPosPreferencesKey], [defaults floatForKey:YPosPreferencesKey]);
+    
+    // If it wasn't set prior, floatForKey returns 0.0
+    float zoom = [defaults floatForKey:ZoomPreferencesKey];
+    if (zoom > self.scrollView.minimumZoomScale){
+        [self.scrollView setZoomScale: zoom];
+    } else {
+        // 0.6 zoom ensures full map visible on iPhone 6 screen
+        [self.scrollView setZoomScale: 0.6f];
+    }
+    
+    [self.scrollView setContentOffset:offset];
     
     // Set up tap recognizer
     UITapGestureRecognizer *scrollTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleScrollTap:)];
@@ -104,6 +119,12 @@ NSMutableArray *buildings;
 
 - (void) scrollViewDidEndZooming:(UIScrollView *)scrollView withView:(UIView *)view atScale:(CGFloat)scale {
     self.scrollView.contentSize = CGSizeMake(self.imageView.image.size.width * scale, self.imageView.image.size.height * scale);
+    [defaults setFloat: scale forKey: ZoomPreferencesKey];
+}
+
+- (void) scrollViewDidScroll:(UIScrollView *)scrollView{
+    [defaults setFloat: self.scrollView.contentOffset.x forKey: XPosPreferencesKey];
+    [defaults setFloat: self.scrollView.contentOffset.y forKey: YPosPreferencesKey];
 }
 
 @end
