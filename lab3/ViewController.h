@@ -25,7 +25,6 @@
 - (IBAction)ENGRTab:(id)sender;
 
 - (void) locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error;
-- (void) locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation;
 - (void) locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations;
 
 //new values -- TODO these are just for testing -- to be removed at the end
