@@ -80,6 +80,11 @@ CLPlacemark *placemark;
     //location initialization
     locationManager = [[CLLocationManager alloc] init]; //for latitude/lognitude
     geocoder = [[CLGeocoder alloc] init]; //for actual address
+    
+    if (CLLocationManager.authorizationStatus == kCLAuthorizationStatusNotDetermined) {
+        [locationManager requestWhenInUseAuthorization];
+    }
+    
     locationManager.delegate = self;
     locationManager.desiredAccuracy = kCLLocationAccuracyBest;
     
@@ -98,10 +103,9 @@ CLPlacemark *placemark;
     [errorAlert show];
 }
 
-- (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation
+- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations
 {
-    NSLog(@"didUpdateToLocation: %@", newLocation);
-    CLLocation *currentLocation = newLocation;
+    CLLocation *currentLocation = locations.lastObject;
     
     if (currentLocation != nil) {
         _testLabelLongitude.text = [NSString stringWithFormat:@"%.8f", currentLocation.coordinate.longitude];
@@ -113,19 +117,15 @@ CLPlacemark *placemark;
         if(error == nil && [placemarks count] > 0) {
             placemark = [placemarks lastObject];
             self.testLabelAddress.text = [NSString stringWithFormat:@"%@ %@\n%@ %@\n%@\n%@",
-                                 placemark.subThoroughfare, placemark.thoroughfare,
-                                 placemark.postalCode, placemark.locality,
-                                 placemark.administrativeArea,
-                                 placemark.country];
+                                          placemark.subThoroughfare, placemark.thoroughfare,
+                                          placemark.postalCode, placemark.locality,
+                                          placemark.administrativeArea,
+                                          placemark.country];
         }
         else {
             NSLog(@"%@", error.debugDescription);
         }
     }];
-    
-    
-    
-    
 }
 
 ///////////
