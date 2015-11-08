@@ -67,10 +67,33 @@ NSMutableArray *buildings;
     
     // End of defining buildings
     
-    [self.imageView setImage:[UIImage imageNamed:@"campusmap.png"]];
+    [self.imageView setFrame: CGRectMake(0, 0, 660, 694)];
     
+    [self.scrollView setMinimumZoomScale:0.25f];
     [self.scrollView setMaximumZoomScale:5.0f];
     [self.scrollView setClipsToBounds:YES];
+    
+    // Set up tap recognizer
+    UITapGestureRecognizer *scrollTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleScrollTap:)];
+    [self.scrollView addGestureRecognizer:scrollTap];
+}
+
+- (void)handleScrollTap:(UITapGestureRecognizer *)recognizer {
+    // Get the touched point on the imageview (scaling handled by the locationInView method)
+    CGPoint touchedPoint = [recognizer locationInView: self.imageView];
+    
+    // Iterate through the buildings array, if one of them matches, launch the detail view
+    for (LABBuilding *building in buildings){
+        if(CGRectContainsPoint(building.locationOnImage, touchedPoint)){
+            DetailsViewController *DVC = [self.storyboard instantiateViewControllerWithIdentifier:@"DetailsViewController"];
+            
+            [self presentViewController:DVC animated:YES completion:nil];
+            
+            [DVC setBuilding: building];
+            
+            break;
+        }
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -81,25 +104,6 @@ NSMutableArray *buildings;
 
 - (UIView *) viewForZoomingInScrollView:(UIScrollView *)scrollView {
     return self.imageView;
-}
-
-- (IBAction)ENGRButton:(id)sender {
-    DetailsViewController *DVC = [self.storyboard instantiateViewControllerWithIdentifier:@"DetailsViewController"];
-    
-    [self presentViewController:DVC animated:YES completion:nil];
-    
-    [DVC setBuilding: [buildings objectAtIndex: 1]];
-    
-}
-
-- (IBAction)MLKButton:(id)sender {
-    DetailsViewController *DVC = [self.storyboard instantiateViewControllerWithIdentifier:@"DetailsViewController"];
-    [self presentViewController:DVC animated:YES completion:nil];
-    
-    [DVC setBuilding: [buildings objectAtIndex: 0]];
-}
-
-- (IBAction)ENGRTab:(id)sender {
 }
 
 @end

@@ -14,11 +14,6 @@
 
 @implementation DetailsViewController
 
-//@synthesize myWebView;
-//@synthesize nameValue;
-
-//@synthesize nameFeeder;
-//@synthesize nameLabel;
 @synthesize buildingImageName;
 
 
@@ -37,10 +32,6 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-//    [myWebView loadRequest: [NSURLRequest requestWithURL: [NSURL URLWithString:nameValue]]];
-    
-    //load the correct building image based on the buildingImageName
-    //[self.imageView setImage:[UIImage imageNamed:buildingImageName]];
 }
 
 - (void)didReceiveMemoryWarning
