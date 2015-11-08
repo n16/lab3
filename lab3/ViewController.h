@@ -7,9 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CoreLocation/CoreLocation.h>
 
-@interface ViewController : UIViewController <UIScrollViewDelegate>
-
+@interface ViewController : UIViewController <UIScrollViewDelegate, CLLocationManagerDelegate>
 //@property (weak, nonatomic) IBOutlet UIImageView *imageView;
 //@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 
@@ -24,6 +24,13 @@
 
 - (IBAction)ENGRTab:(id)sender;
 
-//new values
+- (void) locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error;
+- (void) locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations;
+
+//new values -- TODO these are just for testing -- to be removed at the end
+@property (weak, nonatomic) IBOutlet UILabel *testLabelLatitude;
+@property (weak, nonatomic) IBOutlet UILabel *testLabelLongitude;
+@property (weak, nonatomic) IBOutlet UILabel *testLabelAddress;
+
 
 @end
