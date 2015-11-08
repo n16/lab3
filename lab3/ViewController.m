@@ -80,6 +80,11 @@ CLPlacemark *placemark;
     //location initialization
     locationManager = [[CLLocationManager alloc] init]; //for latitude/lognitude
     geocoder = [[CLGeocoder alloc] init]; //for actual address
+    
+    if (CLLocationManager.authorizationStatus == kCLAuthorizationStatusNotDetermined) {
+        [locationManager requestWhenInUseAuthorization];
+    }
+    
     locationManager.delegate = self;
     locationManager.desiredAccuracy = kCLLocationAccuracyBest;
     
@@ -96,6 +101,31 @@ CLPlacemark *placemark;
     UIAlertView *errorAlert = [[UIAlertView alloc]
                                initWithTitle:@"Error" message:@"Failed to Get Your Location" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
     [errorAlert show];
+}
+
+- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations
+{
+    CLLocation *currentLocation = locations.lastObject;
+    
+    if (currentLocation != nil) {
+        _testLabelLongitude.text = [NSString stringWithFormat:@"%.8f", currentLocation.coordinate.longitude];
+        _testLabelLatitude.text = [NSString stringWithFormat:@"%.8f", currentLocation.coordinate.latitude];
+    }
+    
+    //get the actual address
+    [geocoder reverseGeocodeLocation:currentLocation completionHandler:^(NSArray *placemarks, NSError *error) {
+        if(error == nil && [placemarks count] > 0) {
+            placemark = [placemarks lastObject];
+            self.testLabelAddress.text = [NSString stringWithFormat:@"%@ %@\n%@ %@\n%@\n%@",
+                                          placemark.subThoroughfare, placemark.thoroughfare,
+                                          placemark.postalCode, placemark.locality,
+                                          placemark.administrativeArea,
+                                          placemark.country];
+        }
+        else {
+            NSLog(@"%@", error.debugDescription);
+        }
+    }];
 }
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation
