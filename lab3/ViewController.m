@@ -33,38 +33,42 @@ NSMutableArray *buildings;
     LABBuilding *library = [[LABBuilding alloc] init];
     library.buildingName = @"Dr. Martin Luther King, Jr. Library";
     library.buildingAddress = @"150 East San Fernando Street, San Jose, CA 95112";
-    library.imageName = @"MLKLibrary.png";
+    library.imageName = @"library.png";
     library.locationOnImage = CGRectMake(55,190,78,92);
     [buildings addObject: library];
     
     LABBuilding *engr = [[LABBuilding alloc] init];
     engr.buildingName = @"Charles W. Davidson College of Engineering";
     engr.buildingAddress = @"1 Washington Square, San Jose, CA 95112";
-    engr.imageName = @"SJSU_Engineering.png";
+    engr.imageName = @"engineering.png";
     engr.locationOnImage = CGRectMake(340,195,95,100);
     [buildings addObject: engr];
     
     LABBuilding *su = [[LABBuilding alloc] init];
     su.buildingName = @"Student Union Building";
     su.buildingAddress = @"1 Washington Square, San Jose, CA 95112";
+    su.imageName = @"student-union.png";
     su.locationOnImage = CGRectMake(330, 304, 186, 54);
     [buildings addObject: su];
     
     LABBuilding *yuh = [[LABBuilding alloc] init];
     yuh.buildingName = @"Yoshihiro Uchida Hall";
     yuh.buildingAddress = @"1 Washington Square, San Jose, CA 95112";
+    yuh.imageName = @"yuh.png";
     yuh.locationOnImage = CGRectMake(55, 402, 78, 73);
     [buildings addObject: yuh];
     
     LABBuilding *bbc = [[LABBuilding alloc] init];
     bbc.buildingName = @"Boccardo Business Complex";
     bbc.buildingAddress = @"1 Washington Square, San Jose, CA 95112";
+    bbc.imageName = @"bbc.png";
     bbc.locationOnImage = CGRectMake(524, 353, 69, 56);
     [buildings addObject: bbc];
     
     LABBuilding *spg = [[LABBuilding alloc] init];
     spg.buildingName = @"South Parking Garage";
     spg.buildingAddress = @"330 South 7th Street, San Jose, CA 95112";
+    spg.imageName = @"spg.png";
     spg.locationOnImage = CGRectMake(194, 558, 126, 93);
     [buildings addObject: spg];
     
