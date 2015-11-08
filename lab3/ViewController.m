@@ -9,14 +9,18 @@
 #import "ViewController.h"
 #import "DetailsViewController.h"
 #import "LABBuilding.h"
+#import <CoreLocation/CoreLocation.h>
 
-@interface ViewController (){
+@interface ViewController () <CLLocationManagerDelegate> {
 NSMutableArray *buildings;
+CLLocationManager *locationManager;
+CLGeocoder *geocoder;
+CLPlacemark *placemark;
 }
 
 @end
 
-@implementation ViewController
+@implementation ViewController 
 
 - (void)viewDidLoad
 {
@@ -71,7 +75,60 @@ NSMutableArray *buildings;
     
     [self.scrollView setMaximumZoomScale:5.0f];
     [self.scrollView setClipsToBounds:YES];
+    
+    
+    //location initialization
+    locationManager = [[CLLocationManager alloc] init]; //for latitude/lognitude
+    geocoder = [[CLGeocoder alloc] init]; //for actual address
+    locationManager.delegate = self;
+    locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+    
+    [locationManager startUpdatingLocation];
+    
+    
 }
+
+#pragma mark - CLLocationManagerDelegate
+
+- (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
+{
+    NSLog(@"didFailWithError: %@", error);
+    UIAlertView *errorAlert = [[UIAlertView alloc]
+                               initWithTitle:@"Error" message:@"Failed to Get Your Location" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    [errorAlert show];
+}
+
+- (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation
+{
+    NSLog(@"didUpdateToLocation: %@", newLocation);
+    CLLocation *currentLocation = newLocation;
+    
+    if (currentLocation != nil) {
+        _testLabelLongitude.text = [NSString stringWithFormat:@"%.8f", currentLocation.coordinate.longitude];
+        _testLabelLatitude.text = [NSString stringWithFormat:@"%.8f", currentLocation.coordinate.latitude];
+    }
+    
+    //get the actual address
+    [geocoder reverseGeocodeLocation:currentLocation completionHandler:^(NSArray *placemarks, NSError *error) {
+        if(error == nil && [placemarks count] > 0) {
+            placemark = [placemarks lastObject];
+            self.testLabelAddress.text = [NSString stringWithFormat:@"%@ %@\n%@ %@\n%@\n%@",
+                                 placemark.subThoroughfare, placemark.thoroughfare,
+                                 placemark.postalCode, placemark.locality,
+                                 placemark.administrativeArea,
+                                 placemark.country];
+        }
+        else {
+            NSLog(@"%@", error.debugDescription);
+        }
+    }];
+    
+    
+    
+    
+}
+
+///////////
 
 - (void)didReceiveMemoryWarning
 {
@@ -100,6 +157,17 @@ NSMutableArray *buildings;
 }
 
 - (IBAction)ENGRTab:(id)sender {
+}
+
+
+
+//get the current location
+- (IBAction)getCurrentLocation:(id)sender {
+    locationManager.delegate = self;
+    locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+    
+    if([CLLocationManager locationServicesEnabled])
+        [locationManager startUpdatingLocation];
 }
 
 @end

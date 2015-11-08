@@ -9,7 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface ViewController : UIViewController <UIScrollViewDelegate>
-
 //@property (weak, nonatomic) IBOutlet UIImageView *imageView;
 //@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 
@@ -25,5 +24,9 @@
 - (IBAction)ENGRTab:(id)sender;
 
 //new values
+@property (weak, nonatomic) IBOutlet UILabel *testLabelLatitude;
+@property (weak, nonatomic) IBOutlet UILabel *testLabelLongitude;
+@property (weak, nonatomic) IBOutlet UILabel *testLabelAddress;
+
 
 @end
