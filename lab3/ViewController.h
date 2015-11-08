@@ -23,7 +23,7 @@
 
 - (IBAction)ENGRTab:(id)sender;
 
-//new values
+//new values -- TODO these are just for testing -- to be removed at the end
 @property (weak, nonatomic) IBOutlet UILabel *testLabelLatitude;
 @property (weak, nonatomic) IBOutlet UILabel *testLabelLongitude;
 @property (weak, nonatomic) IBOutlet UILabel *testLabelAddress;
