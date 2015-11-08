@@ -25,7 +25,11 @@
 - (IBAction)ENGRTab:(id)sender;
 
 - (void) locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error;
+#if __IPHONE_OS_VERSION_MAX_ALLOWED >= 80000
 - (void) locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations;
+#else
+- (void) locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations;
+#endif
 
 //new values -- TODO these are just for testing -- to be removed at the end
 @property (weak, nonatomic) IBOutlet UILabel *testLabelLatitude;

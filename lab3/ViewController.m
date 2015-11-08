@@ -80,10 +80,12 @@ CLPlacemark *placemark;
     //location initialization
     locationManager = [[CLLocationManager alloc] init]; //for latitude/lognitude
     geocoder = [[CLGeocoder alloc] init]; //for actual address
-    
+
+#if __IPHONE_OS_VERSION_MAX_ALLOWED >= 80000
     if (CLLocationManager.authorizationStatus == kCLAuthorizationStatusNotDetermined) {
         [locationManager requestWhenInUseAuthorization];
     }
+#endif
     
     locationManager.delegate = self;
     locationManager.desiredAccuracy = kCLLocationAccuracyBest;
@@ -103,7 +105,11 @@ CLPlacemark *placemark;
     [errorAlert show];
 }
 
+#if __IPHONE_OS_VERSION_MAX_ALLOWED >= 80000
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations
+#else
+- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
+#endif
 {
     CLLocation *currentLocation = locations.lastObject;
     
