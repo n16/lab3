@@ -28,6 +28,7 @@
 		5C2B4C0A1BED7A4C00DC1615 /* SJSU_Engineering.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C2B4C091BED7A4C00DC1615 /* SJSU_Engineering.png */; };
 		5C2B4C0C1BED813E00DC1615 /* MLKLibrary.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C2B4C0B1BED813E00DC1615 /* MLKLibrary.png */; };
 		5C2B4C0E1BF026CD00DC1615 /* reddot.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C2B4C0D1BF026CD00DC1615 /* reddot.png */; };
+		E4A554FC1BF0636F006F38CB /* sjsu.gpx in Resources */ = {isa = PBXBuildFile; fileRef = E4A554FB1BF0636F006F38CB /* sjsu.gpx */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +70,7 @@
 		5C2B4C091BED7A4C00DC1615 /* SJSU_Engineering.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = SJSU_Engineering.png; path = ../SJSU_Engineering.png; sourceTree = "<group>"; };
 		5C2B4C0B1BED813E00DC1615 /* MLKLibrary.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MLKLibrary.png; path = ../MLKLibrary.png; sourceTree = "<group>"; };
 		5C2B4C0D1BF026CD00DC1615 /* reddot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = reddot.png; sourceTree = SOURCE_ROOT; };
+		E4A554FB1BF0636F006F38CB /* sjsu.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = sjsu.gpx; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +100,7 @@
 		5C2B4BC01BED3B1500DC1615 = {
 			isa = PBXGroup;
 			children = (
+				E4A554FB1BF0636F006F38CB /* sjsu.gpx */,
 				5C2B4BD21BED3B1500DC1615 /* lab3 */,
 				5C2B4BF41BED3B1600DC1615 /* lab3Tests */,
 				5C2B4BCB1BED3B1500DC1615 /* Frameworks */,
@@ -255,6 +258,7 @@
 			files = (
 				5C2B4BE31BED3B1500DC1615 /* Main_iPad.storyboard in Resources */,
 				5C2B4BE81BED3B1500DC1615 /* Images.xcassets in Resources */,
+				E4A554FC1BF0636F006F38CB /* sjsu.gpx in Resources */,
 				5C2B4BE01BED3B1500DC1615 /* Main_iPhone.storyboard in Resources */,
 				5C2B4BD71BED3B1500DC1615 /* InfoPlist.strings in Resources */,
 				5C2B4C0C1BED813E00DC1615 /* MLKLibrary.png in Resources */,
