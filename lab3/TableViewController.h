@@ -7,12 +7,27 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "LABBuilding.h"
 
-@interface TableViewController : UIViewController<UITableViewDelegate, UITableViewDataSource>
+@protocol buildingSearchResult<NSObject>
+
+-(void)goToBuilding: (LABBuilding *) building;
+
+@end
+
+@interface TableViewController : UIViewController<UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate>
+
+@property (nonatomic,assign)id delegate;
+
+@property (weak, nonatomic)IBOutlet UITableView *tableView;
 
 -(void) setBuildings: (NSMutableArray *) buildings;
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section;
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath;
+
+-(void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText;
+
+-(IBAction)goBack:(id)sender;
 
 @end

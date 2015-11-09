@@ -11,7 +11,7 @@
 
 @interface TableViewController (){
     NSMutableArray* _buildings;
-    NSMutableArray* searchResults;
+    NSArray* searchResults;
 }
 
 @end
@@ -21,16 +21,12 @@
 - (void)setBuildings:(NSMutableArray *)buildings
 {
     _buildings = buildings;
+    searchResults = buildings;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -38,14 +34,29 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void)goBack:(id)sender
+{
+    [self dismissViewControllerAnimated:YES
+                             completion:nil];
+}
+
+#pragma mark - Search Bar
+-(void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText{
+    // If the user entered anything, search a matching building, otherwise, display them all
+    if (searchText.length > 0){
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"buildingName CONTAINS[cd] %@", searchText];
+        searchResults = [_buildings filteredArrayUsingPredicate:predicate];
+    } else {
+        searchResults = _buildings;
+    }
+    [self.tableView reloadData];
+}
+
+
 #pragma mark - Table view data source
 
-//- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-//    return 1;
-//}
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [_buildings count];
+    return [searchResults count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -56,7 +67,7 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellId];
     }
     
-    LABBuilding *building = [_buildings objectAtIndex:indexPath.row];
+    LABBuilding *building = [searchResults objectAtIndex:indexPath.row];
     cell.textLabel.text = building.buildingName;
     
     return cell;
