@@ -37,4 +37,5 @@
 @property (weak, nonatomic) IBOutlet UILabel *testLabelAddress;
 
 
+@property (weak, nonatomic) IBOutlet UIImageView *reddot;
 @end

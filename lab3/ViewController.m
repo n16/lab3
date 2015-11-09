@@ -16,6 +16,9 @@ NSMutableArray *buildings;
 CLLocationManager *locationManager;
 CLGeocoder *geocoder;
 CLPlacemark *placemark;
+int xCoordinate;
+int yCoordinate;
+    
 }
 
 @end
@@ -26,6 +29,8 @@ CLPlacemark *placemark;
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    xCoordinate = 10;
+    yCoordinate = 10;
     
     buildings = [[NSMutableArray alloc] initWithCapacity: 6];
     
@@ -93,6 +98,19 @@ CLPlacemark *placemark;
     [locationManager startUpdatingLocation];
     
     
+    // create a red circle
+    [self.reddot setImage:[UIImage imageNamed:@"reddot.png"]];
+    
+    //self.reddot.center = self.view.center;
+    //[self.view addSubview:self.reddot];
+    
+    //update x and y based on the current location coordinates + based on zoom-level
+    self.reddot.frame = CGRectMake(self.reddot.frame.origin.x, self.reddot.frame.origin.y, xCoordinate, yCoordinate);
+    self.reddot.frame = CGRectMake(self.reddot.frame.size.width, self.reddot.frame.size.height, 10, 10);
+    self.reddot.clipsToBounds = YES;
+    
+    
+    
 }
 
 #pragma mark - CLLocationManagerDelegate
@@ -127,6 +145,7 @@ CLPlacemark *placemark;
                                           placemark.postalCode, placemark.locality,
                                           placemark.administrativeArea,
                                           placemark.country];
+            
         }
         else {
             NSLog(@"%@", error.debugDescription);

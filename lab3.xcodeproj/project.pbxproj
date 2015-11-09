@@ -27,6 +27,7 @@
 		5C2B4C081BED5F5600DC1615 /* DetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C2B4C071BED5F5600DC1615 /* DetailsViewController.m */; };
 		5C2B4C0A1BED7A4C00DC1615 /* SJSU_Engineering.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C2B4C091BED7A4C00DC1615 /* SJSU_Engineering.png */; };
 		5C2B4C0C1BED813E00DC1615 /* MLKLibrary.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C2B4C0B1BED813E00DC1615 /* MLKLibrary.png */; };
+		5C2B4C0E1BF026CD00DC1615 /* reddot.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C2B4C0D1BF026CD00DC1615 /* reddot.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +68,7 @@
 		5C2B4C071BED5F5600DC1615 /* DetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DetailsViewController.m; path = ../DetailsViewController.m; sourceTree = "<group>"; };
 		5C2B4C091BED7A4C00DC1615 /* SJSU_Engineering.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = SJSU_Engineering.png; path = ../SJSU_Engineering.png; sourceTree = "<group>"; };
 		5C2B4C0B1BED813E00DC1615 /* MLKLibrary.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MLKLibrary.png; path = ../MLKLibrary.png; sourceTree = "<group>"; };
+		5C2B4C0D1BF026CD00DC1615 /* reddot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = reddot.png; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +134,7 @@
 				5C2B4BDB1BED3B1500DC1615 /* AppDelegate.h */,
 				5C2B4BDC1BED3B1500DC1615 /* AppDelegate.m */,
 				5C2B4BDE1BED3B1500DC1615 /* Main_iPhone.storyboard */,
+				5C2B4C0D1BF026CD00DC1615 /* reddot.png */,
 				5C2B4BE11BED3B1500DC1615 /* Main_iPad.storyboard */,
 				5C2B4BE41BED3B1500DC1615 /* ViewController.h */,
 				5C2B4BE51BED3B1500DC1615 /* ViewController.m */,
@@ -257,6 +260,7 @@
 				5C2B4C0C1BED813E00DC1615 /* MLKLibrary.png in Resources */,
 				5C2B4C0A1BED7A4C00DC1615 /* SJSU_Engineering.png in Resources */,
 				5C2B4C051BED3BA600DC1615 /* campusmap.png in Resources */,
+				5C2B4C0E1BF026CD00DC1615 /* reddot.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
