@@ -31,6 +31,7 @@ NSMutableArray *buildings;
     // Define buildings
     
     LABBuilding *library = [[LABBuilding alloc] init];
+    library.latlon = [[CLLocation alloc] initWithLatitude: 37.335571 longitude: -121.884661];
     library.buildingName = @"Dr. Martin Luther King, Jr. Library";
     library.buildingAddress = @"150 East San Fernando Street, San Jose, CA 95112";
     library.imageName = @"library.png";
@@ -38,6 +39,7 @@ NSMutableArray *buildings;
     [buildings addObject: library];
     
     LABBuilding *engr = [[LABBuilding alloc] init];
+    engr.latlon = [[CLLocation alloc] initWithLatitude: 37.337123 longitude: -121.881764];
     engr.buildingName = @"Charles W. Davidson College of Engineering";
     engr.buildingAddress = @"1 Washington Square, San Jose, CA 95112";
     engr.imageName = @"engineering.png";
@@ -45,6 +47,7 @@ NSMutableArray *buildings;
     [buildings addObject: engr];
     
     LABBuilding *su = [[LABBuilding alloc] init];
+    su.latlon = [[CLLocation alloc] initWithLatitude: 37.336326 longitude: -121.881342];
     su.buildingName = @"Student Union Building";
     su.buildingAddress = @"1 Washington Square, San Jose, CA 95112";
     su.imageName = @"student-union.png";
@@ -52,6 +55,7 @@ NSMutableArray *buildings;
     [buildings addObject: su];
     
     LABBuilding *yuh = [[LABBuilding alloc] init];
+    yuh.latlon = [[CLLocation alloc] initWithLatitude: 37.333682 longitude: -121.883865];
     yuh.buildingName = @"Yoshihiro Uchida Hall";
     yuh.buildingAddress = @"1 Washington Square, San Jose, CA 95112";
     yuh.imageName = @"yuh.png";
@@ -59,6 +63,7 @@ NSMutableArray *buildings;
     [buildings addObject: yuh];
     
     LABBuilding *bbc = [[LABBuilding alloc] init];
+    bbc.latlon = [[CLLocation alloc] initWithLatitude: 37.337079 longitude: -121.878867];
     bbc.buildingName = @"Boccardo Business Complex";
     bbc.buildingAddress = @"1 Washington Square, San Jose, CA 95112";
     bbc.imageName = @"bbc.png";
@@ -66,6 +71,7 @@ NSMutableArray *buildings;
     [buildings addObject: bbc];
     
     LABBuilding *spg = [[LABBuilding alloc] init];
+    spg.latlon = [[CLLocation alloc] initWithLatitude: 37.333110 longitude: -121.880796];
     spg.buildingName = @"South Parking Garage";
     spg.buildingAddress = @"330 South 7th Street, San Jose, CA 95112";
     spg.imageName = @"spg.png";
