@@ -15,5 +15,6 @@
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 
 - (void)handleScrollTap:(UITapGestureRecognizer *) recognizer;
+- (IBAction)startSearch:(id)sender;
 
 @end

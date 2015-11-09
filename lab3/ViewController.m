@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "DetailsViewController.h"
+#import "TableViewController.h"
 #import "LABBuilding.h"
 #import "Constants.h"
 
@@ -135,6 +136,12 @@ NSMutableArray *buildings;
 - (void) scrollViewDidScroll:(UIScrollView *)scrollView{
     [defaults setFloat: self.scrollView.contentOffset.x forKey: XPosPreferencesKey];
     [defaults setFloat: self.scrollView.contentOffset.y forKey: YPosPreferencesKey];
+}
+
+- (IBAction)startSearch:(id)sender{
+    TableViewController *TVC = [self.storyboard instantiateViewControllerWithIdentifier:@"TableViewController"];
+    [TVC setBuildings:buildings];
+    [self presentViewController:TVC animated:YES completion:nil];
 }
 
 @end
