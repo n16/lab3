@@ -79,12 +79,13 @@ NSMutableArray *buildings;
     
     // If it wasn't set prior, floatForKey returns 0.0
     float zoom = [defaults floatForKey:ZoomPreferencesKey];
-    if (zoom > self.scrollView.minimumZoomScale){
-        [self.scrollView setZoomScale: zoom];
-    } else {
+    if (zoom < self.scrollView.minimumZoomScale){
         // 0.6 zoom ensures full map visible on iPhone 6 screen
-        [self.scrollView setZoomScale: 0.6f];
+        zoom = 0.6f;
     }
+
+    [self.scrollView setZoomScale: zoom];
+    self.scrollView.contentSize = CGSizeMake(self.imageView.image.size.width * zoom, self.imageView.image.size.height * zoom);
     
     [self.scrollView setContentOffset:offset];
     
