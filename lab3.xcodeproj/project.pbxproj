@@ -34,6 +34,7 @@
 		E4A554F71BEF32C5006F38CB /* student-union.png in Resources */ = {isa = PBXBuildFile; fileRef = E4A554F11BEF32C5006F38CB /* student-union.png */; };
 		E4A554F81BEF32C5006F38CB /* yuh.png in Resources */ = {isa = PBXBuildFile; fileRef = E4A554F21BEF32C5006F38CB /* yuh.png */; };
 		E4A554FF1BF06F93006F38CB /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E4A554FE1BF06F93006F38CB /* TableViewController.m */; };
+		E4A555021BF095F6006F38CB /* BuildingHighlight.m in Sources */ = {isa = PBXBuildFile; fileRef = E4A555011BF095F6006F38CB /* BuildingHighlight.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +84,8 @@
 		E4A554F21BEF32C5006F38CB /* yuh.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = yuh.png; sourceTree = SOURCE_ROOT; };
 		E4A554FD1BF06F93006F38CB /* TableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewController.h; sourceTree = "<group>"; };
 		E4A554FE1BF06F93006F38CB /* TableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewController.m; sourceTree = "<group>"; };
+		E4A555001BF095F6006F38CB /* BuildingHighlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BuildingHighlight.h; sourceTree = "<group>"; };
+		E4A555011BF095F6006F38CB /* BuildingHighlight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BuildingHighlight.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,6 +169,8 @@
 				E4A554EB1BEF28D2006F38CB /* Constants.m */,
 				E4A554FD1BF06F93006F38CB /* TableViewController.h */,
 				E4A554FE1BF06F93006F38CB /* TableViewController.m */,
+				E4A555001BF095F6006F38CB /* BuildingHighlight.h */,
+				E4A555011BF095F6006F38CB /* BuildingHighlight.m */,
 			);
 			path = lab3;
 			sourceTree = "<group>";
@@ -309,6 +314,7 @@
 				5C2B4BDD1BED3B1500DC1615 /* AppDelegate.m in Sources */,
 				5C2B4BD91BED3B1500DC1615 /* main.m in Sources */,
 				5C2B4C081BED5F5600DC1615 /* DetailsViewController.m in Sources */,
+				E4A555021BF095F6006F38CB /* BuildingHighlight.m in Sources */,
 				3FD3E5961BEDA59400542C9C /* LABBuilding.m in Sources */,
 				E4A554FF1BF06F93006F38CB /* TableViewController.m in Sources */,
 				E4A554EC1BEF28D2006F38CB /* Constants.m in Sources */,

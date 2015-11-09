@@ -11,10 +11,12 @@
 #import "TableViewController.h"
 #import "LABBuilding.h"
 #import "Constants.h"
+#import "BuildingHighlight.h"
 
 @interface ViewController (){
 NSMutableArray *buildings;
     NSUserDefaults *defaults;
+    BuildingHighlight *highlight;
 }
 
 @end
@@ -129,16 +131,22 @@ NSMutableArray *buildings;
 }
 
 - (void) scrollViewDidEndZooming:(UIScrollView *)scrollView withView:(UIView *)view atScale:(CGFloat)scale {
+    [self removeHighlight];
     self.scrollView.contentSize = CGSizeMake(self.imageView.image.size.width * scale, self.imageView.image.size.height * scale);
     [defaults setFloat: scale forKey: ZoomPreferencesKey];
 }
 
 - (void) scrollViewDidScroll:(UIScrollView *)scrollView{
+    [self removeHighlight];
     [defaults setFloat: self.scrollView.contentOffset.x forKey: XPosPreferencesKey];
     [defaults setFloat: self.scrollView.contentOffset.y forKey: YPosPreferencesKey];
 }
 
 - (IBAction)startSearch:(id)sender{
+    // Remove the highlight to prevent multiple highlights from being made
+    [self removeHighlight];
+    
+    // Go to search
     TableViewController *TVC = [self.storyboard instantiateViewControllerWithIdentifier:@"TableViewController"];
     [TVC setBuildings:buildings];
     TVC.delegate = self;
@@ -147,8 +155,23 @@ NSMutableArray *buildings;
 
 - (void) goToBuilding:(LABBuilding *)building
 {
+    // Zoom to 100%
     [self.scrollView setZoomScale:1.0f];
-    // TODO: Draw Rectangle
+    
+    // Center building in the scrollview
+    CGFloat offsetX = building.locationOnImage.origin.x + (building.locationOnImage.size.width / 2) - (self.scrollView.bounds.size.width / 2);
+    CGFloat offsetY = building.locationOnImage.origin.y + (building.locationOnImage.size.height / 2) - (self.scrollView.bounds.size.height / 2);
+    
+    [self.scrollView setContentOffset:CGPointMake(offsetX, offsetY)];
+    
+    // Draw highlight
+    highlight = [[BuildingHighlight alloc] initWithFrame:building.locationOnImage];
+    [self.scrollView addSubview:highlight];
+}
+
+-(void) removeHighlight
+{
+    [highlight removeFromSuperview];
 }
 
 @end
