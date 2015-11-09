@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TableViewController.h"
 
-@interface ViewController : UIViewController <UIScrollViewDelegate>
+@interface ViewController : UIViewController <UIScrollViewDelegate, buildingSearchResult>
 
 
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
@@ -16,5 +17,7 @@
 
 - (void)handleScrollTap:(UITapGestureRecognizer *) recognizer;
 - (IBAction)startSearch:(id)sender;
+
+-(void)goToBuilding:(LABBuilding *)building;
 
 @end

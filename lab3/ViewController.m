@@ -141,7 +141,14 @@ NSMutableArray *buildings;
 - (IBAction)startSearch:(id)sender{
     TableViewController *TVC = [self.storyboard instantiateViewControllerWithIdentifier:@"TableViewController"];
     [TVC setBuildings:buildings];
+    TVC.delegate = self;
     [self presentViewController:TVC animated:YES completion:nil];
+}
+
+- (void) goToBuilding:(LABBuilding *)building
+{
+    [self.scrollView setZoomScale:1.0f];
+    // TODO: Draw Rectangle
 }
 
 @end

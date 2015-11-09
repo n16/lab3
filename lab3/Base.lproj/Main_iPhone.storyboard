@@ -107,6 +107,7 @@
                                 </prototypes>
                                 <connections>
                                     <outlet property="dataSource" destination="W0H-kK-abC" id="3cW-11-zRc"/>
+                                    <outlet property="delegate" destination="W0H-kK-abC" id="jzw-k1-aqg"/>
                                 </connections>
                             </tableView>
                             <searchBar contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yph-7y-Rh7">

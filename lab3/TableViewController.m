@@ -17,6 +17,7 @@
 @end
 
 @implementation TableViewController
+@synthesize delegate;
 
 - (void)setBuildings:(NSMutableArray *)buildings
 {
@@ -71,6 +72,12 @@
     cell.textLabel.text = building.buildingName;
     
     return cell;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [delegate goToBuilding: [searchResults objectAtIndex:indexPath.row]];
+    [self dismissViewControllerAnimated:YES
+                             completion:nil];
 }
 
 /*
