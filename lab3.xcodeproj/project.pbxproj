@@ -25,8 +25,14 @@
 		5C2B4BFB1BED3B1600DC1615 /* lab3Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C2B4BFA1BED3B1600DC1615 /* lab3Tests.m */; };
 		5C2B4C051BED3BA600DC1615 /* campusmap.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C2B4C041BED3BA600DC1615 /* campusmap.png */; };
 		5C2B4C081BED5F5600DC1615 /* DetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C2B4C071BED5F5600DC1615 /* DetailsViewController.m */; };
-		5C2B4C0A1BED7A4C00DC1615 /* SJSU_Engineering.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C2B4C091BED7A4C00DC1615 /* SJSU_Engineering.png */; };
-		5C2B4C0C1BED813E00DC1615 /* MLKLibrary.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C2B4C0B1BED813E00DC1615 /* MLKLibrary.png */; };
+		E4A554E91BEF20EF006F38CB /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E4A554E81BEF20EF006F38CB /* Launch Screen.storyboard */; };
+		E4A554EC1BEF28D2006F38CB /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = E4A554EB1BEF28D2006F38CB /* Constants.m */; };
+		E4A554F31BEF32C5006F38CB /* bbc.png in Resources */ = {isa = PBXBuildFile; fileRef = E4A554ED1BEF32C5006F38CB /* bbc.png */; };
+		E4A554F41BEF32C5006F38CB /* engineering.png in Resources */ = {isa = PBXBuildFile; fileRef = E4A554EE1BEF32C5006F38CB /* engineering.png */; };
+		E4A554F51BEF32C5006F38CB /* library.png in Resources */ = {isa = PBXBuildFile; fileRef = E4A554EF1BEF32C5006F38CB /* library.png */; };
+		E4A554F61BEF32C5006F38CB /* spg.png in Resources */ = {isa = PBXBuildFile; fileRef = E4A554F01BEF32C5006F38CB /* spg.png */; };
+		E4A554F71BEF32C5006F38CB /* student-union.png in Resources */ = {isa = PBXBuildFile; fileRef = E4A554F11BEF32C5006F38CB /* student-union.png */; };
+		E4A554F81BEF32C5006F38CB /* yuh.png in Resources */ = {isa = PBXBuildFile; fileRef = E4A554F21BEF32C5006F38CB /* yuh.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,8 +71,15 @@
 		5C2B4C041BED3BA600DC1615 /* campusmap.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = campusmap.png; path = ../campusmap.png; sourceTree = "<group>"; };
 		5C2B4C061BED5F5600DC1615 /* DetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DetailsViewController.h; path = ../DetailsViewController.h; sourceTree = "<group>"; };
 		5C2B4C071BED5F5600DC1615 /* DetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DetailsViewController.m; path = ../DetailsViewController.m; sourceTree = "<group>"; };
-		5C2B4C091BED7A4C00DC1615 /* SJSU_Engineering.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = SJSU_Engineering.png; path = ../SJSU_Engineering.png; sourceTree = "<group>"; };
-		5C2B4C0B1BED813E00DC1615 /* MLKLibrary.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MLKLibrary.png; path = ../MLKLibrary.png; sourceTree = "<group>"; };
+		E4A554E81BEF20EF006F38CB /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		E4A554EA1BEF28D2006F38CB /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		E4A554EB1BEF28D2006F38CB /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
+		E4A554ED1BEF32C5006F38CB /* bbc.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bbc.png; sourceTree = SOURCE_ROOT; };
+		E4A554EE1BEF32C5006F38CB /* engineering.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = engineering.png; sourceTree = SOURCE_ROOT; };
+		E4A554EF1BEF32C5006F38CB /* library.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = library.png; sourceTree = SOURCE_ROOT; };
+		E4A554F01BEF32C5006F38CB /* spg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spg.png; sourceTree = SOURCE_ROOT; };
+		E4A554F11BEF32C5006F38CB /* student-union.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "student-union.png"; sourceTree = SOURCE_ROOT; };
+		E4A554F21BEF32C5006F38CB /* yuh.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = yuh.png; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,9 +139,13 @@
 		5C2B4BD21BED3B1500DC1615 /* lab3 */ = {
 			isa = PBXGroup;
 			children = (
+				E4A554ED1BEF32C5006F38CB /* bbc.png */,
+				E4A554EE1BEF32C5006F38CB /* engineering.png */,
+				E4A554EF1BEF32C5006F38CB /* library.png */,
+				E4A554F01BEF32C5006F38CB /* spg.png */,
+				E4A554F11BEF32C5006F38CB /* student-union.png */,
+				E4A554F21BEF32C5006F38CB /* yuh.png */,
 				5C2B4C041BED3BA600DC1615 /* campusmap.png */,
-				5C2B4C0B1BED813E00DC1615 /* MLKLibrary.png */,
-				5C2B4C091BED7A4C00DC1615 /* SJSU_Engineering.png */,
 				5C2B4BDB1BED3B1500DC1615 /* AppDelegate.h */,
 				5C2B4BDC1BED3B1500DC1615 /* AppDelegate.m */,
 				5C2B4BDE1BED3B1500DC1615 /* Main_iPhone.storyboard */,
@@ -141,6 +158,9 @@
 				5C2B4BD31BED3B1500DC1615 /* Supporting Files */,
 				3FD3E5941BEDA57E00542C9C /* LABBuilding.h */,
 				3FD3E5951BEDA59400542C9C /* LABBuilding.m */,
+				E4A554E81BEF20EF006F38CB /* Launch Screen.storyboard */,
+				E4A554EA1BEF28D2006F38CB /* Constants.h */,
+				E4A554EB1BEF28D2006F38CB /* Constants.m */,
 			);
 			path = lab3;
 			sourceTree = "<group>";
@@ -250,12 +270,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E4A554F81BEF32C5006F38CB /* yuh.png in Resources */,
+				E4A554F31BEF32C5006F38CB /* bbc.png in Resources */,
+				E4A554F51BEF32C5006F38CB /* library.png in Resources */,
 				5C2B4BE31BED3B1500DC1615 /* Main_iPad.storyboard in Resources */,
 				5C2B4BE81BED3B1500DC1615 /* Images.xcassets in Resources */,
+				E4A554F71BEF32C5006F38CB /* student-union.png in Resources */,
+				E4A554F61BEF32C5006F38CB /* spg.png in Resources */,
+				E4A554E91BEF20EF006F38CB /* Launch Screen.storyboard in Resources */,
 				5C2B4BE01BED3B1500DC1615 /* Main_iPhone.storyboard in Resources */,
+				E4A554F41BEF32C5006F38CB /* engineering.png in Resources */,
 				5C2B4BD71BED3B1500DC1615 /* InfoPlist.strings in Resources */,
-				5C2B4C0C1BED813E00DC1615 /* MLKLibrary.png in Resources */,
-				5C2B4C0A1BED7A4C00DC1615 /* SJSU_Engineering.png in Resources */,
 				5C2B4C051BED3BA600DC1615 /* campusmap.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -280,6 +305,7 @@
 				5C2B4BD91BED3B1500DC1615 /* main.m in Sources */,
 				5C2B4C081BED5F5600DC1615 /* DetailsViewController.m in Sources */,
 				3FD3E5961BEDA59400542C9C /* LABBuilding.m in Sources */,
+				E4A554EC1BEF28D2006F38CB /* Constants.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

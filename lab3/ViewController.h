@@ -10,20 +10,10 @@
 
 @interface ViewController : UIViewController <UIScrollViewDelegate>
 
-//@property (weak, nonatomic) IBOutlet UIImageView *imageView;
-//@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
-
-
-//- (IBAction)ENGRButton:(id)sender;
-
 
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
-- (IBAction)ENGRButton:(id)sender;
-- (IBAction)MLKButton:(id)sender;
 
-- (IBAction)ENGRTab:(id)sender;
-
-//new values
+- (void)handleScrollTap:(UITapGestureRecognizer *) recognizer;
 
 @end
