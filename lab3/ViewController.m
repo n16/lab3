@@ -130,14 +130,11 @@ int y;
     x = 2.9 * (xTopLeft + (xTopLeft * lattitude / LATITUDE));
     y = 1.5 * (yTopLeft + (yTopLeft * longitude / LONGITUDE));
     
-    //TODO get current zoom
+    //TODO get current zoom and apply it to x and y
     int scale = self.scrollView.frame.size.width / 320;
     imageView.frame = CGRectMake(_scrollView.frame.origin.x, _scrollView.frame.origin.y,
                                  320*scale, 504*scale);
-    
-    //self.reddot.frame = CGRectMake(self.reddot.frame.origin.x, self.reddot.frame.origin.y, x, y);
-    _testLabelLatitude.text = [NSString stringWithFormat:@"%d",x];
-    _testLabelLongitude.text = [NSString stringWithFormat:@"%d",y];
+
     
 }
 
@@ -166,6 +163,10 @@ int y;
         //TODO remove these 2 following lines
         _testLabelLatitude.text = [NSString stringWithFormat:@"%d",x];
         _testLabelLongitude.text = [NSString stringWithFormat:@"%d",y];
+        
+        //update redcircle
+        self.reddot.frame = CGRectMake(self.reddot.frame.origin.x, self.reddot.frame.origin.y, x, y);
+
     }
     
     //get the actual address
