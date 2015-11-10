@@ -164,6 +164,10 @@ NSMutableArray *buildings;
     CGFloat offsetY = building.locationOnImage.origin.y + (building.locationOnImage.size.height / 2) - (self.scrollView.bounds.size.height / 2);
     
     [self.scrollView setContentOffset:CGPointMake(offsetX, offsetY)];
+
+    // Update scrollView's contentsize to enable scrolling
+    // No need to adjust for scale because we just zoomed the view to 100%
+    self.scrollView.contentSize = CGSizeMake(self.imageView.image.size.width, self.imageView.image.size.height);
     
     // Draw highlight
     highlight = [[BuildingHighlight alloc] initWithFrame:building.locationOnImage];
