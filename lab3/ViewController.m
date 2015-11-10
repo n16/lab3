@@ -138,6 +138,17 @@ int y;
     
 }
 
+- (void)scrollViewDidEndZooming:(UIScrollView *)scrollView withView:(UIView *)view atScale:(double)scale
+{
+    //set the scrolling bounds
+    self.scrollView.contentSize= CGSizeMake(320*scale, 504*scale);
+    NSLog(@"scale: %f", scale);
+    NSLog(@"content width: %f", self.scrollView.contentSize.width);
+    NSLog(@"content height: %f", self.scrollView.contentSize.height);
+    NSLog(@"frame width %f", imageView.frame.size.width);
+    NSLog(@"frame height %f", imageView.frame.size.height);
+}
+
 #pragma mark - CLLocationManagerDelegate
 
 - (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
