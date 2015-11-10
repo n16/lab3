@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" minimumZoomScale="0.25" maximumZoomScale="5" keyboardDismissMode="interactive" translatesAutoresizingMaskIntoConstraints="NO" id="0UZ-FB-9Rf">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="603"/>
                                 <subviews>
                                     <imageView contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="campusmap.png" translatesAutoresizingMaskIntoConstraints="NO" id="68N-dk-j8v">
                                         <rect key="frame" x="0.0" y="0.0" width="660" height="694"/>
@@ -32,11 +32,17 @@
                                     <outlet property="delegate" destination="vXZ-lx-hvc" id="DGg-A8-vlU"/>
                                 </connections>
                             </scrollView>
-                            <searchBar contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Thb-ki-j8J">
-                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1gw-J4-Sb1">
+                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
                                 <animations/>
-                                <textInputTraits key="textInputTraits"/>
-                            </searchBar>
+                                <items>
+                                    <barButtonItem title="Search" id="5fP-3p-xsm">
+                                        <connections>
+                                            <action selector="startSearch:" destination="vXZ-lx-hvc" id="gl1-Po-3sF"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -46,11 +52,92 @@
                     <connections>
                         <outlet property="imageView" destination="68N-dk-j8v" id="k3a-hJ-rcT"/>
                         <outlet property="scrollView" destination="0UZ-FB-9Rf" id="y4R-5n-Enn"/>
+                        <outlet property="searchDisplayController" destination="6Uj-Q0-V2Z" id="Rxn-Ba-iFE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="6Uj-Q0-V2Z">
+                    <connections>
+                        <outlet property="delegate" destination="vXZ-lx-hvc" id="34H-oJ-AXY"/>
+                        <outlet property="searchContentsController" destination="vXZ-lx-hvc" id="cW1-t4-V87"/>
+                        <outlet property="searchResultsDataSource" destination="vXZ-lx-hvc" id="Cq2-aH-YuW"/>
+                        <outlet property="searchResultsDelegate" destination="vXZ-lx-hvc" id="QVM-J6-jCC"/>
+                    </connections>
+                </searchDisplayController>
             </objects>
             <point key="canvasLocation" x="-1524.5" y="-180.5"/>
+        </scene>
+        <!--TableViewController-->
+        <scene sceneID="GIc-Hg-jnn">
+            <objects>
+                <viewController storyboardIdentifier="TableViewController" title="TableViewController" id="W0H-kK-abC" customClass="TableViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="XKb-gK-nXj"/>
+                        <viewControllerLayoutGuide type="bottom" id="5yh-wU-zy9"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="YSf-xu-ecK">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fcn-E2-Bbb">
+                                <rect key="frame" x="0.0" y="64" width="375" height="557"/>
+                                <animations/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="cellID" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cellID" textLabel="wq9-rs-CWm" style="IBUITableViewCellStyleDefault" id="0hT-Wv-jGD">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0hT-Wv-jGD" id="ayt-Jl-7R6">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="wq9-rs-CWm">
+                                                    <rect key="frame" x="15" y="0.0" width="345" height="43"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <animations/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <animations/>
+                                        </tableViewCellContentView>
+                                        <animations/>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="W0H-kK-abC" id="3cW-11-zRc"/>
+                                    <outlet property="delegate" destination="W0H-kK-abC" id="jzw-k1-aqg"/>
+                                </connections>
+                            </tableView>
+                            <searchBar contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yph-7y-Rh7">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <animations/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="W0H-kK-abC" id="U8t-gq-JZN"/>
+                                </connections>
+                            </searchBar>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HDZ-Df-TbI">
+                                <rect key="frame" x="132" y="629" width="110" height="30"/>
+                                <animations/>
+                                <state key="normal" title="Back to Map"/>
+                                <connections>
+                                    <action selector="goBack:" destination="W0H-kK-abC" eventType="touchUpInside" id="EpE-y8-Edl"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="tableView" destination="fcn-E2-Bbb" id="Fcz-cY-OCL"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JfA-fx-pj9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-900.5" y="105.5"/>
         </scene>
         <!--Details View Controller-->
         <scene sceneID="hMB-Bn-naI">
@@ -64,16 +151,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OwZ-Ik-wgE">
-                                <rect key="frame" x="143" y="545" width="88" height="30"/>
-                                <animations/>
-                                <state key="normal" title="Back to Map">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="vXZ-lx-hvc" kind="modal" id="ocu-6Q-Weq"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Building Name: " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="07O-sK-e5x">
                                 <rect key="frame" x="13" y="196" width="287" height="21"/>
                                 <animations/>
@@ -99,6 +176,16 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OwZ-Ik-wgE">
+                                <rect key="frame" x="143" y="629" width="88" height="30"/>
+                                <animations/>
+                                <state key="normal" title="Back to Map">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="vXZ-lx-hvc" kind="modal" id="ocu-6Q-Weq"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -113,7 +200,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uwL-ra-VaE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-997.5" y="-226.5"/>
+            <point key="canvasLocation" x="-877.5" y="-724.5"/>
         </scene>
     </scenes>
     <resources>
