@@ -20,7 +20,15 @@ int xCoordinate;
 int yCoordinate;
 int x;
 int y;
-
+    float xXpo;
+    float yXpo;
+    int xTopLeft;
+    int yTopLeft;
+    int longitude;
+    int lattitude;
+    
+    float LATITUDE;
+    float LONGITUDE;
     
 }
 
@@ -35,6 +43,12 @@ int y;
 	// Do any additional setup after loading the view, typically from a nib.
     xCoordinate = 10;
     yCoordinate = 10;
+    xTopLeft = 20;
+    yTopLeft = 143;
+    longitude = -121.880796;
+    lattitude = 37.333110;
+    LATITUDE = 37.335571;
+    LONGITUDE = -121.884661;
     
     buildings = [[NSMutableArray alloc] initWithCapacity: 6];
     
@@ -114,26 +128,21 @@ int y;
     self.reddot.clipsToBounds = YES;
     
     
-    int xTopLeft = 20;
-    int yTopLeft = 143;
+
     int xBottomRight = 270;
     int yBottomRight = 453;
     int imageWidth = 320;
-    int longitude = -121.880796;
-    int lattitude = 37.333110;
-    
-    float LATITUDE = 37.335571;
-    float LONGITUDE = -121.884661;
+
     
     //Top left corner: 37.338800, -121.886478
     //Bottom right corner: 37.331361, -121.876243
-    x = 2.9 * (xTopLeft + (xTopLeft * lattitude / LATITUDE));
-    y = 1.5 * (yTopLeft + (yTopLeft * longitude / LONGITUDE));
+    x = xXpo * (xTopLeft + (xTopLeft * lattitude / LATITUDE));
+    y = yXpo * (yTopLeft + (yTopLeft * longitude / LONGITUDE));
     
     //TODO get current zoom and apply it to x and y
-    int scale = self.scrollView.frame.size.width / 320;
-    imageView.frame = CGRectMake(_scrollView.frame.origin.x, _scrollView.frame.origin.y,
-                                 320*scale, 504*scale);
+
+    //update redcircle
+    self.reddot.frame = CGRectMake(self.reddot.frame.origin.x, self.reddot.frame.origin.y, x, y);
 
     
 }
@@ -147,6 +156,16 @@ int y;
     NSLog(@"content height: %f", self.scrollView.contentSize.height);
     NSLog(@"frame width %f", imageView.frame.size.width);
     NSLog(@"frame height %f", imageView.frame.size.height);
+    
+    xXpo =imageView.frame.size.width / 320;
+    yXpo = imageView.frame.size.height / 504;
+    NSLog(@"xXpo %f", xXpo);
+    NSLog(@"yXpo %f", yXpo);
+    x = xXpo * (xTopLeft + (xTopLeft * lattitude / LATITUDE));
+    y = yXpo * (yTopLeft + (yTopLeft * longitude / LONGITUDE));
+    //update redcircle
+    self.reddot.frame = CGRectMake(self.reddot.frame.origin.x, self.reddot.frame.origin.y, x, y);
+    
 }
 
 #pragma mark - CLLocationManagerDelegate
