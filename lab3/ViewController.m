@@ -36,7 +36,7 @@ NSMutableArray *buildings;
     LABBuilding *library = [[LABBuilding alloc] init];
     library.latlon = [[CLLocation alloc] initWithLatitude: 37.335571 longitude: -121.884661];
     library.buildingName = @"Dr. Martin Luther King, Jr. Library";
-    library.buildingAddress = @"150 East San Fernando Street, San Jose, CA 95112";
+    library.buildingAddress = @"150 E San Fernando Street, San Jose, CA 95112";
     library.imageName = @"library.png";
     library.locationOnImage = CGRectMake(55,190,78,92);
     [buildings addObject: library];

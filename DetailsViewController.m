@@ -42,8 +42,9 @@
 
 - (void)setBuilding:(LABBuilding *)building
 {
-    self.nameLabel.text = [NSString stringWithFormat: @"Building name: %@", building.buildingName];
-    self.addressLabel.text = [NSString stringWithFormat: @"Address: %@", building.buildingAddress];
+    self.nameLabel.text = building.buildingName;
+    self.addressLabel.text = building.buildingAddress;
+    [self.addressLabel sizeToFit];
     self.distanceLabel.text = @"Walking Distance: N/A";
     [self.buildingImageName setImage: [UIImage imageNamed: building.imageName]];
 }
