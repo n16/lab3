@@ -18,12 +18,16 @@ CLGeocoder *geocoder;
 CLPlacemark *placemark;
 int xCoordinate;
 int yCoordinate;
+int x;
+int y;
+
     
 }
 
 @end
 
-@implementation ViewController 
+@implementation ViewController
+@synthesize imageView;
 
 - (void)viewDidLoad
 {
@@ -105,11 +109,35 @@ int yCoordinate;
     //[self.view addSubview:self.reddot];
     
     //update x and y based on the current location coordinates + based on zoom-level
-    self.reddot.frame = CGRectMake(self.reddot.frame.origin.x, self.reddot.frame.origin.y, xCoordinate, yCoordinate);
-    self.reddot.frame = CGRectMake(self.reddot.frame.size.width, self.reddot.frame.size.height, 10, 10);
+//    self.reddot.frame = CGRectMake(self.reddot.frame.origin.x, self.reddot.frame.origin.y, xCoordinate, yCoordinate);
+//    self.reddot.frame = CGRectMake(self.reddot.frame.size.width, self.reddot.frame.size.height, 10, 10);
     self.reddot.clipsToBounds = YES;
     
     
+    int xTopLeft = 20;
+    int yTopLeft = 143;
+    int xBottomRight = 270;
+    int yBottomRight = 453;
+    int imageWidth = 320;
+    int longitude = -121.880796;
+    int lattitude = 37.333110;
+    
+    float LATITUDE = 37.335571;
+    float LONGITUDE = -121.884661;
+    
+    //Top left corner: 37.338800, -121.886478
+    //Bottom right corner: 37.331361, -121.876243
+    x = 2.9 * (xTopLeft + (xTopLeft * lattitude / LATITUDE));
+    y = 1.5 * (yTopLeft + (yTopLeft * longitude / LONGITUDE));
+    
+    //TODO get current zoom
+    int scale = self.scrollView.frame.size.width / 320;
+    imageView.frame = CGRectMake(_scrollView.frame.origin.x, _scrollView.frame.origin.y,
+                                 320*scale, 504*scale);
+    
+    //self.reddot.frame = CGRectMake(self.reddot.frame.origin.x, self.reddot.frame.origin.y, x, y);
+    _testLabelLatitude.text = [NSString stringWithFormat:@"%d",x];
+    _testLabelLongitude.text = [NSString stringWithFormat:@"%d",y];
     
 }
 
@@ -134,6 +162,10 @@ int yCoordinate;
     if (currentLocation != nil) {
         _testLabelLongitude.text = [NSString stringWithFormat:@"%.8f", currentLocation.coordinate.longitude];
         _testLabelLatitude.text = [NSString stringWithFormat:@"%.8f", currentLocation.coordinate.latitude];
+        
+        //TODO remove these 2 following lines
+        _testLabelLatitude.text = [NSString stringWithFormat:@"%d",x];
+        _testLabelLongitude.text = [NSString stringWithFormat:@"%d",y];
     }
     
     //get the actual address
