@@ -15,6 +15,7 @@
 @implementation DetailsViewController
 
 @synthesize buildingImageName;
+@synthesize locationManager;
 
 
 
@@ -24,6 +25,7 @@
     if (self) {
         // Custom initialization
     }
+    
     return self;
 }
 
@@ -32,6 +34,30 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    if (locationManager == nil){
+        locationManager = [[CLLocationManager alloc] init];
+    }
+    
+    // Start location manager to query walking distance when we get a fix
+    if (CLLocationManager.authorizationStatus == kCLAuthorizationStatusNotDetermined) {
+        [locationManager requestWhenInUseAuthorization];
+    }
+    
+    locationManager.delegate = self;
+    
+    // Ensure we don't get too many updates to prevent overloading google
+    locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters;
+    locationManager.distanceFilter = 50;
+}
+
+- (void) viewWillAppear:(BOOL)animated
+{
+    [locationManager startUpdatingLocation];
+}
+
+- (void) viewWillDisappear:(BOOL)animated
+{
+    [locationManager stopUpdatingLocation];
 }
 
 - (void)didReceiveMemoryWarning
@@ -45,8 +71,15 @@
     self.nameLabel.text = building.buildingName;
     self.addressLabel.text = building.buildingAddress;
     [self.addressLabel sizeToFit];
-    self.distanceLabel.text = @"Walking Distance: N/A";
+    self.distanceLabel.text = @"Loading";
     [self.buildingImageName setImage: [UIImage imageNamed: building.imageName]];
+}
+
+#pragma mark Location Delegate
+
+- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations
+{
+    CLLocation *loc = locations.lastObject;
 }
 
 
