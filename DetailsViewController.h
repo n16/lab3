@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "LABBuilding.h"
+#import <CoreLocation/CoreLocation.h>
 
-@interface DetailsViewController : UIViewController
+@interface DetailsViewController : UIViewController <CLLocationManagerDelegate>
 
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *addressLabel;
@@ -17,6 +18,10 @@
 
 @property (weak, nonatomic) IBOutlet UIImageView *buildingImageName;
 
+@property (strong, nonatomic) CLLocationManager *locationManager;
+
 - (void) setBuilding: (LABBuilding *) building;
+
+- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations;
 
 @end
