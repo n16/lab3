@@ -73,7 +73,7 @@
     self.nameLabel.text = building.buildingName;
     self.addressLabel.text = building.buildingAddress;
     [self.addressLabel sizeToFit];
-    self.distanceLabel.text = @"Loading";
+    self.distanceLabel.text = @"Waiting for position";
     [self.buildingImageName setImage: [UIImage imageNamed: building.imageName]];
     _building = building;
 }
@@ -100,14 +100,24 @@
                                                                    error:NULL];
         
         // Get the important bits from the JSON structure returned by google
-        NSArray *rows = [json objectForKey:@"rows"];
-        NSDictionary *row = [rows objectAtIndex:0];
-        NSArray *elements = [row objectForKey:@"elements"];
-        NSDictionary *results = [elements objectAtIndex:0];
-        NSDictionary *distance = [results objectForKey:@"distance"];
-        NSDictionary *duration = [results objectForKey:@"duration"];
+        @try {
+            NSArray *rows = [json objectForKey:@"rows"];
+            NSDictionary *row = [rows objectAtIndex:0];
+            NSArray *elements = [row objectForKey:@"elements"];
+            NSDictionary *results = [elements objectAtIndex:0];
+            NSDictionary *distance = [results objectForKey:@"distance"];
+            NSDictionary *duration = [results objectForKey:@"duration"];
         
-        self.distanceLabel.text = [NSString stringWithFormat: @"%@ / %@ walk", [distance objectForKey:@"text"], [duration objectForKey:@"text"]];
+            if (duration == nil || distance == nil){
+                self.distanceLabel.text = @"Could not obtain distance";
+                return;
+            }
+            
+            self.distanceLabel.text = [NSString stringWithFormat: @"%@ / %@ walk", [distance objectForKey:@"text"], [duration objectForKey:@"text"]];
+        }
+        @catch (NSException *e){
+            self.distanceLabel.text = @"Could not obtain distance";
+        }
     }];
 }
 
