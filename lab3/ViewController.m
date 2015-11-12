@@ -12,16 +12,25 @@
 #import "LABBuilding.h"
 #import "Constants.h"
 #import "BuildingHighlight.h"
+#import "CoordUtils.h"
+#import "RedDot.h"
+
+#define degreesToRadians(x) (M_PI * x / 180.0)
 
 @interface ViewController (){
 NSMutableArray *buildings;
     NSUserDefaults *defaults;
     BuildingHighlight *highlight;
+    RedDot *redDot;
+    CGPoint redDotLocation;
+    bool redDotVisible;
 }
 
 @end
 
 @implementation ViewController
+
+@synthesize locationManager;
 
 - (void)viewDidLoad
 {
@@ -101,6 +110,30 @@ NSMutableArray *buildings;
     // Set up tap recognizer
     UITapGestureRecognizer *scrollTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleScrollTap:)];
     [self.scrollView addGestureRecognizer:scrollTap];
+    
+    // Start listening for location
+    if (locationManager == nil){
+        locationManager = [[CLLocationManager alloc] init];
+    }
+    
+    if (CLLocationManager.authorizationStatus == kCLAuthorizationStatusNotDetermined) {
+        [locationManager requestWhenInUseAuthorization];
+    }
+    
+    locationManager.delegate = self;
+    locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+    locationManager.distanceFilter = 5;
+
+}
+
+- (void) viewWillAppear:(BOOL)animated
+{
+    [locationManager startUpdatingLocation];
+}
+
+- (void) viewWillDisappear:(BOOL)animated
+{
+    [locationManager stopUpdatingLocation];
 }
 
 - (void)handleScrollTap:(UITapGestureRecognizer *)recognizer {
@@ -135,6 +168,10 @@ NSMutableArray *buildings;
     [self removeHighlight];
     self.scrollView.contentSize = CGSizeMake(self.imageView.image.size.width * scale, self.imageView.image.size.height * scale);
     [defaults setFloat: scale forKey: ZoomPreferencesKey];
+}
+
+- (void)scrollViewDidZoom:(UIScrollView *)scrollView{
+    [self updateRedDot];
 }
 
 - (void) scrollViewDidScroll:(UIScrollView *)scrollView{
@@ -177,6 +214,62 @@ NSMutableArray *buildings;
 -(void) removeHighlight
 {
     [highlight removeFromSuperview];
+}
+
+#pragma mark LocationManager delegate
+
+-(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations{
+    CLLocationCoordinate2D coord = locations.lastObject.coordinate;
+    
+    // Taking king library as a known point on the map, let's see where the user is in relation to the library
+    CLLocationCoordinate2D library = CLLocationCoordinate2DMake(37.335571, -121.884661);
+    
+    float distance = [CoordUtils metersBetween:library :coord];
+    float bearing = [CoordUtils bearingBetween:library :coord];
+    
+    // The map's scale is approximately 419 pixels / 464 meters
+    float distance_map = distance * (419.0/464.0);
+    
+    // Up in our map is 31 deg West, so we need to adjust our bearing by 31 degrees
+    float bearing_map = bearing + 31;
+    
+    // Now we just need some trigonometrics to calculate if and where to draw the circle
+    // The reference point is at x: 121px, y: 241px
+    float xPos = 121 + distance_map * sin(degreesToRadians(bearing_map));
+    float yPos = 241 - (distance_map * cos(degreesToRadians(bearing_map)));
+    
+    // Return if the point is outside the map
+    if (xPos < 0 || yPos < 0 || xPos > self.imageView.image.size.width || yPos > self.imageView.image.size.height){
+        [redDot removeFromSuperview];
+        redDotVisible = false;
+        return;
+    }
+    
+    redDotLocation = CGPointMake(xPos, yPos);
+    redDotVisible = true;
+    [self updateRedDot];
+}
+
+-(void)updateRedDot{
+    // Only draw it if the user has been located
+    if(!redDotVisible) return;
+    
+    // Set up size, and half size so user's position is in the center of the dot
+    int redDotSize = 20;
+    int halfSize = redDotSize / 2;
+    
+    float xPos = (float)redDotLocation.x * [self.scrollView zoomScale];
+    float yPos = (float)redDotLocation.y * [self.scrollView zoomScale];
+    
+    CGRect frame = CGRectMake(xPos - halfSize, yPos - halfSize, redDotSize, redDotSize);
+    
+    if (redDot == nil){
+        redDot = [[RedDot alloc] initWithFrame: frame];
+    } else {
+        [redDot setFrame:frame];
+    }
+    
+    [self.scrollView addSubview:redDot];
 }
 
 @end

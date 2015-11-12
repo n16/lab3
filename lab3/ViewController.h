@@ -8,16 +8,21 @@
 
 #import <UIKit/UIKit.h>
 #import "TableViewController.h"
+#import <CoreLocation/CoreLocation.h>
 
-@interface ViewController : UIViewController <UIScrollViewDelegate, buildingSearchResult>
+@interface ViewController : UIViewController <UIScrollViewDelegate, buildingSearchResult, CLLocationManagerDelegate>
 
 
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 
+@property (strong,nonatomic) CLLocationManager *locationManager;
+
 - (void)handleScrollTap:(UITapGestureRecognizer *) recognizer;
 - (IBAction)startSearch:(id)sender;
 
 -(void)goToBuilding:(LABBuilding *)building;
+
+-(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations;
 
 @end
