@@ -13,6 +13,7 @@
 #import "Constants.h"
 #import "BuildingHighlight.h"
 #import "CoordUtils.h"
+#import "RedDot.h"
 
 #define degreesToRadians(x) (M_PI * x / 180.0)
 
@@ -20,6 +21,7 @@
 NSMutableArray *buildings;
     NSUserDefaults *defaults;
     BuildingHighlight *highlight;
+    RedDot *redDot;
 }
 
 @end
@@ -226,8 +228,28 @@ NSMutableArray *buildings;
     float bearing_map = bearing + 31;
     
     // Now we just need some trigonometrics to calculate if and where to draw the circle
-    float xPos = distance_map * sin(degreesToRadians(bearing_map));
-    float yPos = -(distance_map * cos(degreesToRadians(bearing_map)));
+    // The reference point is at x: 121px, y: 241px
+    float xPos = 121 + distance_map * sin(degreesToRadians(bearing_map));
+    float yPos = 241 - (distance_map * cos(degreesToRadians(bearing_map)));
+    
+    // Return if the point is outside the map
+    if (xPos < 0 || yPos < 0 || xPos > self.imageView.image.size.width || yPos > self.imageView.image.size.height){
+        [redDot removeFromSuperview];
+        return;
+    }
+    
+    int redDotSize = 20;
+    int halfSize = redDotSize / 2;
+    
+    CGRect frame = CGRectMake(xPos - halfSize, yPos - halfSize, redDotSize, redDotSize);
+    
+    if (redDot == nil){
+        redDot = [[RedDot alloc] initWithFrame: frame];
+    } else {
+        [redDot setFrame:frame];
+    }
+    
+    [self.scrollView addSubview:redDot];
 }
 
 @end

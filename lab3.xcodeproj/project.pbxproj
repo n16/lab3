@@ -37,6 +37,7 @@
 		E4A555021BF095F6006F38CB /* BuildingHighlight.m in Sources */ = {isa = PBXBuildFile; fileRef = E4A555011BF095F6006F38CB /* BuildingHighlight.m */; };
 		E4A555041BF42446006F38CB /* SJSU.gpx in Resources */ = {isa = PBXBuildFile; fileRef = E4A555031BF42446006F38CB /* SJSU.gpx */; };
 		E4A555071BF424FC006F38CB /* CoordUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = E4A555061BF424FC006F38CB /* CoordUtils.m */; };
+		E4A5550A1BF4304A006F38CB /* RedDot.m in Sources */ = {isa = PBXBuildFile; fileRef = E4A555091BF4304A006F38CB /* RedDot.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,6 +92,8 @@
 		E4A555031BF42446006F38CB /* SJSU.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = SJSU.gpx; sourceTree = "<group>"; };
 		E4A555051BF424FC006F38CB /* CoordUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoordUtils.h; sourceTree = "<group>"; };
 		E4A555061BF424FC006F38CB /* CoordUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoordUtils.m; sourceTree = "<group>"; };
+		E4A555081BF4304A006F38CB /* RedDot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RedDot.h; sourceTree = "<group>"; };
+		E4A555091BF4304A006F38CB /* RedDot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RedDot.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -179,6 +182,8 @@
 				E4A555031BF42446006F38CB /* SJSU.gpx */,
 				E4A555051BF424FC006F38CB /* CoordUtils.h */,
 				E4A555061BF424FC006F38CB /* CoordUtils.m */,
+				E4A555081BF4304A006F38CB /* RedDot.h */,
+				E4A555091BF4304A006F38CB /* RedDot.m */,
 			);
 			path = lab3;
 			sourceTree = "<group>";
@@ -324,6 +329,7 @@
 				5C2B4BD91BED3B1500DC1615 /* main.m in Sources */,
 				5C2B4C081BED5F5600DC1615 /* DetailsViewController.m in Sources */,
 				E4A555021BF095F6006F38CB /* BuildingHighlight.m in Sources */,
+				E4A5550A1BF4304A006F38CB /* RedDot.m in Sources */,
 				3FD3E5961BEDA59400542C9C /* LABBuilding.m in Sources */,
 				E4A555071BF424FC006F38CB /* CoordUtils.m in Sources */,
 				E4A554FF1BF06F93006F38CB /* TableViewController.m in Sources */,
