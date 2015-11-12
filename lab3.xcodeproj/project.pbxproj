@@ -35,6 +35,7 @@
 		E4A554F81BEF32C5006F38CB /* yuh.png in Resources */ = {isa = PBXBuildFile; fileRef = E4A554F21BEF32C5006F38CB /* yuh.png */; };
 		E4A554FF1BF06F93006F38CB /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E4A554FE1BF06F93006F38CB /* TableViewController.m */; };
 		E4A555021BF095F6006F38CB /* BuildingHighlight.m in Sources */ = {isa = PBXBuildFile; fileRef = E4A555011BF095F6006F38CB /* BuildingHighlight.m */; };
+		E4A555041BF42446006F38CB /* SJSU.gpx in Resources */ = {isa = PBXBuildFile; fileRef = E4A555031BF42446006F38CB /* SJSU.gpx */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,6 +87,7 @@
 		E4A554FE1BF06F93006F38CB /* TableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewController.m; sourceTree = "<group>"; };
 		E4A555001BF095F6006F38CB /* BuildingHighlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BuildingHighlight.h; sourceTree = "<group>"; };
 		E4A555011BF095F6006F38CB /* BuildingHighlight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BuildingHighlight.m; sourceTree = "<group>"; };
+		E4A555031BF42446006F38CB /* SJSU.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = SJSU.gpx; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -171,6 +173,7 @@
 				E4A554FE1BF06F93006F38CB /* TableViewController.m */,
 				E4A555001BF095F6006F38CB /* BuildingHighlight.h */,
 				E4A555011BF095F6006F38CB /* BuildingHighlight.m */,
+				E4A555031BF42446006F38CB /* SJSU.gpx */,
 			);
 			path = lab3;
 			sourceTree = "<group>";
@@ -280,6 +283,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E4A555041BF42446006F38CB /* SJSU.gpx in Resources */,
 				E4A554F81BEF32C5006F38CB /* yuh.png in Resources */,
 				E4A554F31BEF32C5006F38CB /* bbc.png in Resources */,
 				E4A554F51BEF32C5006F38CB /* library.png in Resources */,
