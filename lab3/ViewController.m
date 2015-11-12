@@ -23,6 +23,7 @@ NSMutableArray *buildings;
     BuildingHighlight *highlight;
     RedDot *redDot;
     CGPoint redDotLocation;
+    bool redDotVisible;
 }
 
 @end
@@ -166,8 +167,11 @@ NSMutableArray *buildings;
 - (void) scrollViewDidEndZooming:(UIScrollView *)scrollView withView:(UIView *)view atScale:(CGFloat)scale {
     [self removeHighlight];
     self.scrollView.contentSize = CGSizeMake(self.imageView.image.size.width * scale, self.imageView.image.size.height * scale);
-    [self updateRedDot];
     [defaults setFloat: scale forKey: ZoomPreferencesKey];
+}
+
+- (void)scrollViewDidZoom:(UIScrollView *)scrollView{
+    [self updateRedDot];
 }
 
 - (void) scrollViewDidScroll:(UIScrollView *)scrollView{
@@ -237,14 +241,20 @@ NSMutableArray *buildings;
     // Return if the point is outside the map
     if (xPos < 0 || yPos < 0 || xPos > self.imageView.image.size.width || yPos > self.imageView.image.size.height){
         [redDot removeFromSuperview];
+        redDotVisible = false;
         return;
     }
     
     redDotLocation = CGPointMake(xPos, yPos);
+    redDotVisible = true;
     [self updateRedDot];
 }
 
 -(void)updateRedDot{
+    // Only draw it if the user has been located
+    if(!redDotVisible) return;
+    
+    // Set up size, and half size so user's position is in the center of the dot
     int redDotSize = 20;
     int halfSize = redDotSize / 2;
     
