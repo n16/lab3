@@ -22,6 +22,7 @@ NSMutableArray *buildings;
     NSUserDefaults *defaults;
     BuildingHighlight *highlight;
     RedDot *redDot;
+    CGPoint redDotLocation;
 }
 
 @end
@@ -165,6 +166,7 @@ NSMutableArray *buildings;
 - (void) scrollViewDidEndZooming:(UIScrollView *)scrollView withView:(UIView *)view atScale:(CGFloat)scale {
     [self removeHighlight];
     self.scrollView.contentSize = CGSizeMake(self.imageView.image.size.width * scale, self.imageView.image.size.height * scale);
+    [self updateRedDot];
     [defaults setFloat: scale forKey: ZoomPreferencesKey];
 }
 
@@ -238,8 +240,16 @@ NSMutableArray *buildings;
         return;
     }
     
+    redDotLocation = CGPointMake(xPos, yPos);
+    [self updateRedDot];
+}
+
+-(void)updateRedDot{
     int redDotSize = 20;
     int halfSize = redDotSize / 2;
+    
+    float xPos = (float)redDotLocation.x * [self.scrollView zoomScale];
+    float yPos = (float)redDotLocation.y * [self.scrollView zoomScale];
     
     CGRect frame = CGRectMake(xPos - halfSize, yPos - halfSize, redDotSize, redDotSize);
     
