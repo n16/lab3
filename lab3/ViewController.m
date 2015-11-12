@@ -12,6 +12,9 @@
 #import "LABBuilding.h"
 #import "Constants.h"
 #import "BuildingHighlight.h"
+#import "CoordUtils.h"
+
+#define degreesToRadians(x) (M_PI * x / 180.0)
 
 @interface ViewController (){
 NSMutableArray *buildings;
@@ -22,6 +25,8 @@ NSMutableArray *buildings;
 @end
 
 @implementation ViewController
+
+@synthesize locationManager;
 
 - (void)viewDidLoad
 {
@@ -101,6 +106,30 @@ NSMutableArray *buildings;
     // Set up tap recognizer
     UITapGestureRecognizer *scrollTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleScrollTap:)];
     [self.scrollView addGestureRecognizer:scrollTap];
+    
+    // Start listening for location
+    if (locationManager == nil){
+        locationManager = [[CLLocationManager alloc] init];
+    }
+    
+    if (CLLocationManager.authorizationStatus == kCLAuthorizationStatusNotDetermined) {
+        [locationManager requestWhenInUseAuthorization];
+    }
+    
+    locationManager.delegate = self;
+    locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+    locationManager.distanceFilter = 5;
+
+}
+
+- (void) viewWillAppear:(BOOL)animated
+{
+    [locationManager startUpdatingLocation];
+}
+
+- (void) viewWillDisappear:(BOOL)animated
+{
+    [locationManager stopUpdatingLocation];
 }
 
 - (void)handleScrollTap:(UITapGestureRecognizer *)recognizer {
@@ -177,6 +206,28 @@ NSMutableArray *buildings;
 -(void) removeHighlight
 {
     [highlight removeFromSuperview];
+}
+
+#pragma mark LocationManager delegate
+
+-(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations{
+    CLLocationCoordinate2D coord = locations.lastObject.coordinate;
+    
+    // Taking king library as a known point on the map, let's see where the user is in relation to the library
+    CLLocationCoordinate2D library = CLLocationCoordinate2DMake(37.335571, -121.884661);
+    
+    float distance = [CoordUtils metersBetween:library :coord];
+    float bearing = [CoordUtils bearingBetween:library :coord];
+    
+    // The map's scale is approximately 419 pixels / 464 meters
+    float distance_map = distance * (419.0/464.0);
+    
+    // Up in our map is 31 deg West, so we need to adjust our bearing by 31 degrees
+    float bearing_map = bearing + 31;
+    
+    // Now we just need some trigonometrics to calculate if and where to draw the circle
+    float xPos = distance_map * sin(degreesToRadians(bearing_map));
+    float yPos = -(distance_map * cos(degreesToRadians(bearing_map)));
 }
 
 @end
